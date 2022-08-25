@@ -14,6 +14,7 @@ import { SearchIcon } from "@chakra-ui/icons";
 import React from "react";
 import { useEffect } from "react";
 import { useState } from "react";
+import { Link } from "react-router-dom";
 const SearchApp = () => {
   const [text, setText] = useState("");
   const [data, setData] = useState([]);
@@ -45,7 +46,7 @@ const SearchApp = () => {
       return false;
     }
 
-    setData(data);
+    setData(data.splice(0, 5));
   }
 
   let timerid;
@@ -93,14 +94,21 @@ const SearchApp = () => {
         </Flex>
 
         {text ? (
-          <Box bg="Gray.800" pos="relative" zIndex={1}>
+          <Box bg="Gray.800" height={"200px"} position={"relative"} zIndex={1}>
             {loading ? (
               <Center>Loading....</Center>
             ) : (
               text &&
               data.map((elem, index) => (
-                <Box key={index}>
-                  <Text color={"#FFFF"}>{elem.title}</Text>
+                <Box
+                  key={index}
+                  border="1px solid #FFFF"
+                  padding="2px"
+                  _hover={{ border: "2px solid green" }}
+                >
+                  <Link to={`/movie/${elem.id}`}>
+                    <Text color={"#FFFF"}>{elem.title}</Text>
+                  </Link>
                 </Box>
               ))
             )}
