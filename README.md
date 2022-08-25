@@ -3,7 +3,8 @@ Inspired by BookMyShow, I'm building this movie booking app with help of React, 
 
 ### `Demo Video`
 
-<h1>Link : </h1> https://moviesbookingapp.netlify.app
+# Link 
+https://moviesbookingapp.netlify.app
 
 # Features
 <ol>
