@@ -1,0 +1,7 @@
+* {
+  font-family: Inter, system-ui, sans-serif;
+}
+
+.active {
+  border-bottom: 5px solid black;
+}
