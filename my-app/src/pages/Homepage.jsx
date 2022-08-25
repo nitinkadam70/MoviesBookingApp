@@ -15,6 +15,7 @@ import React from "react";
 import { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { useNavigate } from "react-router-dom";
+import Cards from "../Components/Cards";
 import { getMoviesData } from "../Redux/MoviesGet/action";
 
 const Homepage = () => {
@@ -54,29 +55,12 @@ const Homepage = () => {
           >
             {movies &&
               movies.map((elem) => (
-                <GridItem
-                  w="100%"
-                  h={"100%"}
-                  bg="gray.800"
-                  color="white"
-                  key={elem.id}
-                >
-                  <Img
-                    maxH={"100%"}
-                    maxW="100%"
-                    src={elem.poster_path}
-                    alt={elem.title}
+                <GridItem w="100%" h={"100%"} key={elem.id}>
+                  <Cards
+                    url={elem.poster_path}
+                    title={elem.title}
+                    id={elem.id}
                   />
-                  <Text fontWeight="bold" fontSize="1rem" textAlign="center">
-                    {elem.title}
-                  </Text>
-                  <Button
-                    onClick={() => navigate(`/movie/${elem.id}`)}
-                    colorScheme={"pink"}
-                    minW={"100%"}
-                  >
-                    More Details
-                  </Button>
                 </GridItem>
               ))}
           </Grid>

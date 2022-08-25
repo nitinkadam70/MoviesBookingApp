@@ -3,12 +3,14 @@ import {
   Box,
   Button,
   Flex,
+  Input,
   Menu,
   MenuButton,
   useToast,
 } from "@chakra-ui/react";
 import React from "react";
 import { NavLink, useNavigate } from "react-router-dom";
+import SearchApp from "./SearchApp";
 
 const Navbar = () => {
   const toast = useToast();
@@ -18,18 +20,22 @@ const Navbar = () => {
 
   return (
     <Flex
-      bg="skyblue"
+      bg="hsl(210,8%,20%)"
       p="2%"
       justifyContent="space-between"
       alignItems="center"
       fontWeight="bold"
       fontSize="md"
+      color="#FFFF"
     >
       <Box display="flex" gap="5%">
         <NavLink to="/">Home</NavLink>
         <NavLink to="/login">Login</NavLink>
         <NavLink to="/bookings">Bookings</NavLink>
       </Box>
+
+      <SearchApp />
+
       {token ? (
         <Box display="flex" gap="10%">
           <Button
@@ -50,7 +56,7 @@ const Navbar = () => {
           >
             Logout
           </Button>
-          <Button>Nitin</Button>
+          <Button color={"gray.800"}>Nitin</Button>
           <Menu>
             <MenuButton
               as={Button}

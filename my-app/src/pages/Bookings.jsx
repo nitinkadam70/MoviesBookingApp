@@ -8,6 +8,13 @@ import {
   Spinner,
   Text,
   useToast,
+  TableContainer,
+  Table,
+  Thead,
+  Tr,
+  Tbody,
+  Td,
+  Th,
 } from "@chakra-ui/react";
 import axios from "axios";
 import React from "react";
@@ -52,7 +59,7 @@ const Bookings = () => {
       <br />
       <br />
       {bookedMoviesData.length > 0 ? (
-        <Box width="80%" margin="auto">
+        <Box width="50%" margin="auto">
           {loading ? (
             <Center>
               <Spinner size="xl" />
@@ -62,43 +69,37 @@ const Bookings = () => {
               <Heading>Something went Wrong </Heading>
             </Center>
           ) : (
-            <Grid
-              justifyContent="center"
-              alignItems={"center"}
-              templateColumns="repeat(4, 1fr)"
-              templateRows={"repeat(25%)"}
-              gap={6}
-            >
-              {bookedMoviesData &&
-                bookedMoviesData.map((elem) => (
-                  <GridItem
-                    w="100%"
-                    h={"100%"}
-                    bg="green"
-                    color="white"
-                    key={elem.id}
-                  >
-                    <Text fontWeight="bold" fontSize="1rem" textAlign="center">
-                      name : {elem.name}
-                    </Text>
-                    <Text
-                      fontWeight="bold"
-                      color="black"
-                      fontSize="1rem"
-                      textAlign="center"
-                    >
-                      seat No : {elem.seat}
-                    </Text>
-                    <Button
-                      onClick={() => removeItem(elem.id)}
-                      colorScheme={"red"}
-                      minW={"100%"}
-                    >
-                      cancle booking
-                    </Button>
-                  </GridItem>
-                ))}
-            </Grid>
+            <TableContainer>
+              <Table variant="striped" colorScheme="teal">
+                <Thead>
+                  <Tr>
+                    <Th>#</Th>
+                    <Th>Movie Name</Th>
+                    <Th>Seat No.</Th>
+                    <Th>Cancle Booking</Th>
+                  </Tr>
+                </Thead>
+                <Tbody>
+                  {bookedMoviesData &&
+                    bookedMoviesData.map((elem, index) => (
+                      <Tr key={elem.name}>
+                        <Td>{index + 1}</Td>
+                        <Td>{elem.name}</Td>
+                        <Td>{elem.seat}</Td>
+                        <Td>
+                          <Button
+                            onClick={() => removeItem(elem.id)}
+                            colorScheme={"red"}
+                            minW={"100%"}
+                          >
+                            Cancle Booking
+                          </Button>
+                        </Td>
+                      </Tr>
+                    ))}
+                </Tbody>
+              </Table>
+            </TableContainer>
           )}
         </Box>
       ) : (
