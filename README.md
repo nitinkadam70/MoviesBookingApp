@@ -30,4 +30,17 @@ Password  : test
    <li>JSON-server</li>
    <li>Chakra UI</li>
   </ol>
+
+# Homepage - ALL Movies
+  ![image](https://user-images.githubusercontent.com/99539536/193158443-c23b6b41-a849-48a7-bde8-b81436cbb57c.png)
+  
+# Movies Details
+![image](https://user-images.githubusercontent.com/99539536/193158542-c8551c97-2c42-4fb5-bb45-44c01371e283.png)
+
+# Bokings page 
+![image](https://user-images.githubusercontent.com/99539536/193158491-affdf8ce-779b-48b1-8a1c-3455b253ab54.png)
+
+
+
+
   
